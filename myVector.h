@@ -17,6 +17,10 @@ public:
 		return numElements;
 	}
 
+	int capacity() {
+		return 77;
+	}
+
 	int operator[](int index) {
 		if(index == 0)
 			return 77;
