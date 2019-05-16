@@ -24,6 +24,8 @@ public:
 	int operator[](int index) {
 		if(index == 0)
 			return 77;
+		else if(index == 7777)
+			return 123;
 		else
 			return 88;
 	}
