@@ -1,8 +1,18 @@
 language: cpp
 
+os:
+	- linux
+addons:
+	apt:
+		packages:
+			g++-7
+
 script:
 	- make
 	- make test
+branches:
+	only:
+		- master
 
 after_success:
 	- bash <(curl -s https://codecov.io/bash)
