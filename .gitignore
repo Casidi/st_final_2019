@@ -4,6 +4,8 @@ googletest*
 *.gcov
 *.gcno
 *.gcda
+*.info
+html/*
 
 # Prerequisites
 *.d
