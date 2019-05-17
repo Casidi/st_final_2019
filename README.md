@@ -5,31 +5,39 @@
 
 The final project of the software testing course in NCTU.
 
+## Useful commands
+```bash=
+make
+make test
+make show_cov
+```
+
 ## Interfaces to implement:
 
 - Constructors/Destructors
-	- [ ] vector()
+	- [x] vector()
 
 - Capacity
-	- [ ] int size()
+	- [x] int size()
 	- [ ] void resize(int)
-	- [ ] int capacity()
-	- [ ] bool empty()
+	- [x] int capacity()
+	- [x] bool empty()
 	- [ ] void reserve(int n)
 
 - Element access
-	- [ ] int operator[](int index)
+	- [x] int operator[](int index)
 
 - Modifiers:
-	- [ ] void push_back(int element)
-	- [ ] void pop_back()
+	- [x] void pushBack(int element)
+	- [ ] void popBack()
 	- [ ] void insert(int position, int element)
 	- [ ] int erase(int position)
-	- [ ] void clear()
+	- [x] void clear()
+	- [ ] void sort()
 
 ## Features under consideration
-- CI by using Travis CI
-- Coverage by Coveralls
-- [Reference repo](https://github.com/bast/gtest-demo)
+- ~~CI by using Travis CI~~
+- ~~Coverage by Codecov~~
+- ~~[Reference repo](https://github.com/bast/gtest-demo)~~
 - Generic types (templates)
 - Compatibility with C++ STL
