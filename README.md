@@ -1,4 +1,4 @@
-# Software-Testing-2019-Final-Project
+# Software Testing 2019 - Final Project
 
 [![Build Status](https://travis-ci.org/Casidi/st_final_2019.svg?branch=master)](https://travis-ci.org/Casidi/st_final_2019)
 [![codecov](https://codecov.io/gh/Casidi/st_final_2019/branch/master/graph/badge.svg)](https://codecov.io/gh/Casidi/st_final_2019)

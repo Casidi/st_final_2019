@@ -91,3 +91,9 @@ TEST(TestNSLVector, IsEmpty) {
 	v.clear();
 	EXPECT_TRUE(v.empty());
 }
+
+TEST(TestNSLVector, TestPush10M) {
+	NSLVector v;
+	for(int i = 0; i < 10000000; ++i)
+		v.pushBack(i+3);
+}

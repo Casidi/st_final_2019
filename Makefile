@@ -1,4 +1,6 @@
-all: gtest_main.a
+all: gtest_main
+
+gtest_main: gtest_main.a
 	g++ -std=c++11 -O0 -fprofile-arcs -ftest-coverage -isystem ./googletest-release-1.8.1/googletest/include -pthread TestNSLVector.cpp gtest_main.a -o gtest_main
 
 gtest_main.a:
@@ -6,7 +8,7 @@ gtest_main.a:
 	make -C googletest-release-1.8.1/googletest/make
 	cp googletest-release-1.8.1/googletest/make/gtest_main.a .
 
-test:
+test: gtest_main
 	./gtest_main
 	gcov TestNSLVector.cpp > /dev/null
 
