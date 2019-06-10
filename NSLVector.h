@@ -3,6 +3,7 @@
 
 #include <exception>
 
+template <class T>
 class NSLVector {
 public:
 	NSLVector() {
@@ -15,11 +16,11 @@ public:
 		delete[] buffer;
 	}
 
-	void pushBack(int n) {
+	void pushBack(T n) {
 		if(vectorSize == bufferSize) {
 			bufferSize *= 2;
-			int* oldBuffer = buffer;
-			buffer = new int[bufferSize];
+			T* oldBuffer = buffer;
+			buffer = new T[bufferSize];
 			for(int i = 0; i < vectorSize; ++i)
 				buffer[i] = oldBuffer[i];
 			delete[] oldBuffer;
@@ -41,7 +42,7 @@ public:
 		return (vectorSize == 0)? true: false;
 	}
 
-	int& operator[](int index) {
+	T& operator[](int index) {
 		if(index < 0)
 			throw std::out_of_range("Negative index");
 		if(index > vectorSize-1)
@@ -56,7 +57,7 @@ public:
 private:
 	int vectorSize;
 	int bufferSize;
-	int* buffer;
+	T* buffer;
 };
 
 #endif

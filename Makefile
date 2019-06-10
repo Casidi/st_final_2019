@@ -1,7 +1,14 @@
+CPP_FLAGS = -std=c++11 -O0 -fprofile-arcs -ftest-coverage -pthread
+INC = -isystem ./googletest-release-1.8.1/googletest/include
+OBJS = TestNSLVector.o TestNSLForwardList.o
+
 all: gtest_main
 
-gtest_main: gtest_main.a
-	g++ -std=c++11 -O0 -fprofile-arcs -ftest-coverage -isystem ./googletest-release-1.8.1/googletest/include -pthread TestNSLVector.cpp gtest_main.a -o gtest_main
+gtest_main: gtest_main.a $(OBJS)
+	g++ $(CPP_FLAGS) $(OBJS) $(INC) gtest_main.a -o $@
+
+%.o: %.cpp
+	g++ -c $(CPP_FLAGS) $(INC) $<
 
 gtest_main.a:
 	wget -O - https://github.com/google/googletest/archive/release-1.8.1.tar.gz | tar -xz
