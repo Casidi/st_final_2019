@@ -25,6 +25,6 @@ show_cov: test
 	python3 -m webbrowser html/index.html
 
 clean:
-	rm -rf googletest* gtest_main gtest_main.a 
+	rm -rf  *.o
 	rm -f *.gcov *.gcno *.gcda
 	rm -rf *.info html
