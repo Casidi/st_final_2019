@@ -1,6 +1,6 @@
 CPP_FLAGS = -std=c++11 -O0 -fprofile-arcs -ftest-coverage -pthread
 INC = -isystem ./googletest-release-1.8.1/googletest/include
-OBJS = TestNSLVector.o TestNSLForwardList.o
+OBJS = TestNSLVector.o TestNSLForwardList.o TestNSLDeque.cpp
 
 all: gtest_main
 

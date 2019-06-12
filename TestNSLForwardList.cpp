@@ -16,6 +16,13 @@ protected:
 TEST_F(TestNSLForwardList, Constructor) {
 }
 
+TEST_F(TestNSLForwardList, EraseElement) {
+	list.pushFront(34);
+	list.pushFront(67);
+	list.erase(0);
+	EXPECT_EQ(list.front(), 34);
+}
+
 TEST_F(TestNSLForwardList, PushFrontWorks) {
 	list.pushFront(34);
 	list.pushFront(67);
