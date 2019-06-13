@@ -18,6 +18,8 @@ gtest_main.a:
 test: gtest_main
 	./gtest_main
 	gcov TestNSLVector.cpp > /dev/null
+	gcov TestNSLDeque.cpp > /dev/null
+	gcov TestNSLForwardList.cpp > /dev/null
 
 show_cov: test
 	lcov --capture --directory . --output-file coverage.info

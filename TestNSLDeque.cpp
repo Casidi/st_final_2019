@@ -143,6 +143,8 @@ TEST_F(TestNSLDeque, insert1_ttt) {
 	v.insert(0, 77);
 	int val = v.front();
 	EXPECT_EQ(val, 77);
+	val = v.back();
+	EXPECT_EQ(val, 77);
 }
 
 TEST_F(TestNSLDeque, insert1_tft) {
@@ -384,27 +386,27 @@ TEST_F(TestNSLDeque, NegativeIndex) {
 }
 // test insert in different location
 TEST_F(TestNSLDeque, TestInsertWithPushFront) {
-	for(int i = 0; i < 10; ++i)
+	for(int i = 0; i < 10000; ++i)
 		v.push_front(i);
 	
-	for(int i = 9; i >= 0; --i)
+	for(int i = 9999; i >= 0; --i)
 		v.insert(i, 66);
-	for(int i = 0; i < 20; ++i)
+	for(int i = 0; i < 20000; ++i)
 		if( i%2 == 0)
 			EXPECT_EQ(v[i], 66);
 		else
-			EXPECT_EQ(v[i], 9-i/2);
+			EXPECT_EQ(v[i], 9999-i/2);
 }
 
 // test earse in different location
 TEST_F(TestNSLDeque, TestErase) {
-	for(int i = 0; i < 10; ++i)
+	for(int i = 0; i < 10000; ++i)
 		v.push_front(i);
 	
-	for(int i = 9; i >= 0; i-=2)
+	for(int i = 9999; i >= 0; i-=2)
 		v.erase(i);
-	for(int i = 0; i < 5; ++i)
-		EXPECT_EQ(v[i], (4-i)*2+1);
+	for(int i = 0; i < 5000; ++i)
+		EXPECT_EQ(v[i], (4999-i)*2+1);
 }
 // test large push back
 TEST_F(TestNSLDeque, TestPush10K) {
