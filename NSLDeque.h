@@ -30,7 +30,7 @@ public:
 		return mysize;
 	}
         T& front() {
-                if(mysize==0)
+                if(mysize<=0)
                 {
                     //nothing in the deque
 			throw std::out_of_range("No such element");
@@ -38,7 +38,7 @@ public:
                 return head->next->val;
         }
         T& back() {
-                if(mysize==0)
+                if(mysize<=0)
                 {
                     //nothing in the deque
 			throw std::out_of_range("No such element");
@@ -109,10 +109,8 @@ public:
         }
 	T& operator[](int index)
 	{
-		if(index < 0)
-			throw std::out_of_range("Negative index");
-		if(index >= mysize)
-			throw std::out_of_range("Index greater than size");
+		if(index < 0 || index >= mysize)
+			throw std::out_of_range("No Such element");
 		Node *iter = head->next;
 		Node *riter = tail->prev;
 		if (index <= mysize/2)
@@ -136,8 +134,6 @@ public:
         void erase(int pos) 
         {
             Node *iter = head->next;
-	    if (mysize == 0)
-			throw std::out_of_range("No such element");
 	    if (pos < 0 || pos >= mysize)
 			throw std::out_of_range("No such element");
             for (int i=0;i<pos;i++)

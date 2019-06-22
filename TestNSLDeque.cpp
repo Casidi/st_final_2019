@@ -416,3 +416,186 @@ TEST_F(TestNSLDeque, TestPush10K) {
 	for(int i = 0; i < 10000; ++i)
 		EXPECT_EQ(v[i], i+3);
 }
+// PA {front(),back(),push_front(),front(),back()} 
+TEST_F(TestNSLDeque, TestPA1) {
+	EXPECT_THROW(
+		{v.front();},
+		std::out_of_range);
+	EXPECT_THROW(
+		{v.back();},
+		std::out_of_range);
+	v.push_front(5);
+	v.front();
+	v.back();
+}
+// PA {pop_front(),pop_back(),push_front(5) ,push_front(10),pop_front(),pop_back()} 
+TEST_F(TestNSLDeque, TestPA2) {
+	EXPECT_THROW(
+		{v.pop_front();},
+		std::out_of_range);
+	EXPECT_THROW(
+		{v.pop_back();},
+		std::out_of_range);
+	v.push_front(5);
+	v.push_front(10);
+	v.pop_front();
+	v.pop_back();
+}
+// PA {insert() (negative index),push_front(),insert()}
+TEST_F(TestNSLDeque, TestPA3) {
+	EXPECT_THROW(
+		{v.insert(-1, 5);},
+		std::out_of_range);
+	v.push_front(5);
+	v.insert(1,-4);
+}
+// PA {erase() (negative index),,push_front(), erase()}
+TEST_F(TestNSLDeque, TestPA4) {
+	
+	EXPECT_THROW(
+		{v.erase(-1);},
+		std::out_of_range);
+	v.push_front(5);
+	v.erase(0);
+}
+// {push_front(), v[0], empty(),clear(),empty(),v[0], clear()}
+TEST_F(TestNSLDeque, TestPA5) {
+	v.push_front(5);
+	v[0];
+	EXPECT_EQ(v.empty(), false);
+	v.clear();
+	EXPECT_EQ(v.empty(), true);
+	int val;
+	EXPECT_THROW(
+		{val = v[0];},
+		std::out_of_range);
+	v.clear();
+}
+// CA {front(),back(),push_front(),front(),back()} 
+TEST_F(TestNSLDeque, TestCA1) {
+	EXPECT_THROW(
+		{v.front();},
+		std::out_of_range);
+	EXPECT_THROW(
+		{v.back();},
+		std::out_of_range);
+	v.push_front(5);
+	v.front();
+	v.back();
+}
+// CA {pop_front(),pop_back(),push_front(5) ,push_front(10),pop_front(),pop_back()} 
+TEST_F(TestNSLDeque, TestCA2) {
+	EXPECT_THROW(
+		{v.pop_front();},
+		std::out_of_range);
+	EXPECT_THROW(
+		{v.pop_back();},
+		std::out_of_range);
+	v.push_front(5);
+	v.push_front(10);
+	v.pop_front();
+	v.pop_back();
+}
+// CA {insert() (negative index),push_front(),insert(),insert()}
+TEST_F(TestNSLDeque, TestCA3) {
+	EXPECT_THROW(
+		{v.insert(-1, 5);},
+		std::out_of_range);
+	v.push_front(5);
+	v.insert(1,-4);
+	EXPECT_THROW(
+		{v.insert(55, 5);},
+		std::out_of_range);
+}
+// CA {erase() (negative index),,push_front(), erase(), erase()}
+TEST_F(TestNSLDeque, TestCA4) {
+	
+	EXPECT_THROW(
+		{v.erase(-1);},
+		std::out_of_range);
+	v.push_front(5);
+	v.erase(0);
+	EXPECT_THROW(
+		{v.erase(66);},
+		std::out_of_range);
+}
+//CA {v[-1], push_front(), v[0], empty(),clear(),empty(),v[0], clear()}
+TEST_F(TestNSLDeque, TestCA5) {
+	int val;
+	EXPECT_THROW(
+		{val = v[-1];},
+		std::out_of_range);
+	v.push_front(5);
+	v[0];
+	EXPECT_EQ(v.empty(), false);
+	v.clear();
+	EXPECT_EQ(v.empty(), true);
+	EXPECT_THROW(
+		{val = v[0];},
+		std::out_of_range);
+	v.clear();
+}
+// CACC {front(),back(),push_front(),front(),back()} 
+TEST_F(TestNSLDeque, TestCACC1) {
+	EXPECT_THROW(
+		{v.front();},
+		std::out_of_range);
+	EXPECT_THROW(
+		{v.back();},
+		std::out_of_range);
+	v.push_front(5);
+	v.front();
+	v.back();
+}
+// CACC {pop_front(),pop_back(),push_front(5) ,push_front(10),pop_front(),pop_back()} 
+TEST_F(TestNSLDeque, TestCACC2) {
+	EXPECT_THROW(
+		{v.pop_front();},
+		std::out_of_range);
+	EXPECT_THROW(
+		{v.pop_back();},
+		std::out_of_range);
+	v.push_front(5);
+	v.push_front(10);
+	v.pop_front();
+	v.pop_back();
+}
+// CACC {insert() (negative index),push_front(),insert(),insert()}
+TEST_F(TestNSLDeque, TestCACC3) {
+	EXPECT_THROW(
+		{v.insert(-1, 5);},
+		std::out_of_range);
+	v.push_front(5);
+	v.insert(1,-4);
+	EXPECT_THROW(
+		{v.insert(55, 5);},
+		std::out_of_range);
+}
+// CACC {erase() (negative index),,push_front(), erase(), erase()}
+TEST_F(TestNSLDeque, TestCACC4) {
+	
+	EXPECT_THROW(
+		{v.erase(-1);},
+		std::out_of_range);
+	v.push_front(5);
+	v.erase(0);
+	EXPECT_THROW(
+		{v.erase(66);},
+		std::out_of_range);
+}
+//CACC {v[-1], push_front(), v[0], empty(),clear(),empty(),v[0], clear()}
+TEST_F(TestNSLDeque, TestCACC5) {
+	int val;
+	EXPECT_THROW(
+		{val = v[-1];},
+		std::out_of_range);
+	v.push_front(5);
+	v[0];
+	EXPECT_EQ(v.empty(), false);
+	v.clear();
+	EXPECT_EQ(v.empty(), true);
+	EXPECT_THROW(
+		{val = v[0];},
+		std::out_of_range);
+	v.clear();
+}
