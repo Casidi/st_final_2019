@@ -43,3 +43,22 @@ TEST_F(TestNSLForwardList, IsEmpty) {
 	list.popFront();
 	EXPECT_TRUE(list.empty());
 }
+
+TEST_F(TestNSLForwardList, Erase) {
+	list.erase(0);
+	list.pushFront(23);
+	list.pushFront(34);
+	list.erase(1);
+	EXPECT_FALSE(list.empty());
+	EXPECT_EQ(list.front(), 34);
+	EXPECT_THROW({
+		list.erase(-1);
+	}, std::out_of_range);
+}
+
+TEST_F(TestNSLForwardList, Clear) {
+	list.pushFront(45);
+	list.pushFront(67);
+	list.clear();
+	EXPECT_TRUE(list.empty());
+}
